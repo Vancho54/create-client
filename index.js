@@ -24,12 +24,11 @@ const calculateAge = (date) => {
 }
 
 exports.handler = async (event) => {
+    const response = {
+        statusCode: 200,
+        body: '',
+    };
     try {
-        const response = {
-            statusCode: 200,
-            body: '',
-        };
-
         const age = calculateAge(event.birthday);
         if (age < 18 || age > 65) throw new Error('You can not have a credit card! Sorry')
         const params = {
@@ -50,8 +49,8 @@ exports.handler = async (event) => {
         await sns.publish(snsParams).promise()
         response.body = 'We are generating your credit card! Thank you so much!'
     } catch (error) {
-        response.statusCode = 400,
-        response.body = error.messsage
+        response.statusCode = 400;
+        response.body = error.messsage;
     }
     return response;
 }
