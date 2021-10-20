@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Vancho54/create-client/issues"
   },
-  "homepage": "https://github.com/Vancho54/create-client#readme"
+  "homepage": "https://github.com/Vancho54/create-client#readme",
+  "dependencies": {
+    "aws-sdk": "^2.1012.0"
+  }
 }
